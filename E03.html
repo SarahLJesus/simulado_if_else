@@ -1,17 +1,39 @@
 <script>
     //PROBLEMA: Viajar para algum lugar
-    //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG). Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
-    
+    //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG).
+    //Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
+
     //Considere que o custo diário de viagem para "RS" será de R$ 180,00 (180) e o custo diário de viagem para "MG" será de R$ 210,00 (210).
-    
-    //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
+
+    //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende.
+    //Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino,
+    //além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros"
+    //(R$) estão faltando para realizar a viagem.
 
     //ENTRADA
-
+    const estado = prompt(`Informe o estado para que você deseja viajar (RS para Rio Grande do Sul ou MG para Minas Gerais).`).toUpperCase();
+    const dias = Number(prompt(`Informe quantos dias você pretende ficar de viagem.`).trim());
+    const dinheiros = Number(prompt(`Informe quanto dinheiro você tem para gastar na viagem.`).trim().replace(",", "."));
 
     //PROCESSAMENTO
-
-
+    if (estado === "RS") {
+        dinheiros >= 180.00 * dias;
+        alert(`Boa viagem! Você poderá ficar ${dias} dias e o custo da sua viagem será de R$${dinheiros.toFixed(2).replace(".", ",")}.`);
+    }
+    else {
+        dinheiros < 180.00;
+        const faltars = dinheiros - 180.00 * dias;
+        alert(`Sem férias! Faltará ainda R$${faltars.toFixed(2).replace(".", ",")}.`);
+    }
+    if (estado === "MG") {
+        dinheiros >= 210.00 * dias;
+        alert(`Boa viagem! Você poderá ficar ${dias} dias e o custo da sua viagem será de R$${dinheiros.toFixed(2).replace(".", ",")}.`);
+    }
+    else {
+        dinheiros < 210.00;
+        const faltamg = dinheiros - 210.00 * dias;
+        alert(`Sem férias! Faltará ainda R$${faltamg.toFixed(2).replace(".", ",")}.`);
+    }
     //SAÍDA
 
 </script>
